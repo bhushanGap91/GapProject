@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="mytable">
+<head>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.css">
+  <script src="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.js"></script>
+    <script src="dirPagination.js"></script>
+</head>
+
+<body>
+
+<div ng-controller="table">
+    
+   <table ng-table="vm.tableParams" class="table" show-filter="true">
+    <tr ng-repeat="x in names">
+        <td title="'Name'" filter="{ Name: 'text'}" sortable="'Name'">
+            {{x.Name}}</td>
+        <td title="'Country'" filter="{ Country: 'text'}" sortable="'Country'">
+            {{x.Country}}</td>
+    </tr>
+</table>    
+
+
+    
+    
+    
+</div>
+
+<script>
+angular.module("mytable", ["ngTable"]).controller("table", function($scope,$http,NgTableParams) {
+    
+ $http.get("record.json")
+    .then(function(response)
+          {
+        $scope.names=response.data.records;
+    }
+    );
+    
+     $scope.sort = function(keyname){
+        $scope.sortKey = keyname;   //set the sortKey to the param passed
+        $scope.reverse = !$scope.reverse; //if true make it false and vice versa
+    }
+});    
+    
+    
+    
+    
+    
+</script>
+
+
+
+</body>
+</html>
+
