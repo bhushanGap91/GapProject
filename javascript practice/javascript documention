@@ -1,0 +1,29 @@
+// For html
+document.getElementById('demo').innerHTML = 'Hello JavaScript!'
+
+// For Css
+document.getElementById('demo').style.fontSize='3px'
+
+// JavaScript can hide HTML elements.
+document.getElementById('demo').style.display='none'
+
+// JavaScript can show hidden HTML elements.
+document.getElementById('demo').style.display='block'
+
+
+//JavaScript Display Possibilities
+JavaScript can "display" data in different ways:
+
+Writing into an HTML element, using innerHTML.
+Writing into the HTML output using document.write().  //The document.write() method should only be used for testing.
+Writing into an alert box, using window.alert().
+Writing into the browser console, using console.log().
+
+//JavaScript Programs
+A computer program is a list of "instructions" to be "executed" by the computer.
+
+In a programming language, these program instructions are called statements.
+
+JavaScript is a programming language.
+
+JavaScript statements are separated by semicolons:
